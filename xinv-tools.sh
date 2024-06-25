@@ -6,6 +6,13 @@ mkdir "src/"
 
 echo "$(pwd)/src" > "listener.xinv"
 
+# Check if a file "listener.xinv" exist
+LISTENER_FILE="listener.xinv"
+if [ ! -f "$LISTENER_FILE" ]; then
+    echo "Creating file... $LISTENER_FILE..."
+    touch "$LISTENER_FILE"
+fi
+
 # Function to handle inotifywait for a directory
 monitor_directory() {
     local directory="$1"
