@@ -1,17 +1,15 @@
 #!/bin/bash
 
-# Create a common structure folder
-touch "listener.xinv"
-mkdir "src/"
-
-echo "$(pwd)/src" > "listener.xinv"
-
 # Check if a file "listener.xinv" exist
 LISTENER_FILE="listener.xinv"
 if [ ! -f "$LISTENER_FILE" ]; then
     echo "Creating file... $LISTENER_FILE..."
     touch "$LISTENER_FILE"
 fi
+
+# Create a common structure folder
+mkdir "src/"
+echo "$(pwd)/src" > "listener.xinv"
 
 # Function to handle inotifywait for a directory
 monitor_directory() {
